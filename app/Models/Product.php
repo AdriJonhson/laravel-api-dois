@@ -13,4 +13,9 @@ class Product extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable = ['title', 'category_id', 'slug', 'price', 'amount', 'active'];
+
+    public function category()
+    {
+        return $this->hasOne(Category::class);
+    }
 }
