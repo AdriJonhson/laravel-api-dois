@@ -14,6 +14,17 @@ class Product extends Model
 
     protected $fillable = ['title', 'category_id', 'slug', 'price', 'amount', 'active'];
 
+    public static function rules()
+    {
+      return [
+          'category_id'   => 'required',
+          'title'         => 'required',
+          'slug'          => 'required',
+          'price'         => 'required',
+          'amount'        => 'required'
+      ];
+    }
+
     public function category()
     {
         return $this->hasOne(Category::class);
