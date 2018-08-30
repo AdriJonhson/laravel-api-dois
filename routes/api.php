@@ -9,7 +9,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['namespace' => 'API'], function(){
 
-    Route::resource('categories', 'CategoryAPIController');
-    Route::resource('products', 'ProductAPIController');
+    Route::resource('categories', 'CategoryAPIController')->except(['show']);
+    Route::resource('products', 'ProductAPIController')->except(['show', 'update']);
 
+    Route::get('/products/show/{category}', 'ProductAPIController@listCategory');
+    Route::put('/products/disable/', 'ProductAPIController@disableProduct');
+    Route::get('/products/disabled', 'ProductAPIController@listDisableProducts');
+    Route::put('/product/enable', 'ProductAPIController@enableProduct');
 });
