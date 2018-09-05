@@ -100,5 +100,5 @@ class ProductAPIController extends Controller
 
         return response()->json(['message' => 'Produto removido com sucesso'], 200);
     }
-    
+
 }
