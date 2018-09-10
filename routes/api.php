@@ -6,9 +6,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/', function(){
+   return response()->json('welcome', 200);
+});
 
 Route::group(['namespace' => 'API'], function(){
-
     Route::resource('categories', 'CategoryAPIController')->except(['show']);
     Route::resource('products', 'ProductAPIController')->except(['show', 'update']);
 

@@ -1,3 +1,5 @@
 <?php
 
-Route::get('/', 'SiteController@index');
+Route::get('/', function(){
+    return redirect('/api');
+});
